@@ -162,7 +162,6 @@
 
             // bottom line base
             g.FillRectangle(SkinManager.GetDividersBrush(), 0, LINE_Y, Width, 1);
-            g.FillRectangle(SkinManager.GetDividersBrush(), 0, LINE_Y, Width, 1);
 
             if (!_animationManager.IsAnimating())
             {

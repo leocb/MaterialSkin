@@ -101,6 +101,9 @@
     <Compile Include="Controls\MaterialProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\MaterialTextBoxMin.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DrawHelper.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IMaterialControl.cs" />
