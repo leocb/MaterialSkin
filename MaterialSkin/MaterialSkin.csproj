@@ -119,6 +119,9 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Themes\Theme.cs" />
+    <Compile Include="Themes\ThemeDark.cs" />
+    <Compile Include="Themes\ThemeLight.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\FlexibleMaterialDialog.resx">
