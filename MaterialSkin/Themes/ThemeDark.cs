@@ -1,16 +1,18 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace MaterialSkin.Themes {
 
 	public class ThemeDark : Theme {
 
-		public ThemeDark() {
+		private MaterialSkinManager skinManager;
+
+		public ThemeDark(MaterialSkinManager skinManager) {
+			this.skinManager = skinManager;
 
 			// Text
 			TextHighEmphasisColor = Color.FromArgb(222, 255, 255, 255); // Alpha 87%
-
 			TextMediumEmphasisColor = Color.FromArgb(153, 255, 255, 255); // Alpha 60%
-
 			TextDisabledOrHintColor = Color.FromArgb(97, 255, 255, 255); // Alpha 38%
 
 			// Divider
@@ -38,6 +40,16 @@ namespace MaterialSkin.Themes {
 			// Backdrop colors - for containers, like forms or panels
 			BackdropColor = Color.FromArgb(255, 50, 50, 50);
 			BackdropBrush = new SolidBrush(BackgroundColor); // not a bug?
+
+			// for controls
+			SwitchRippleColor = Color.White;
+			DrawerLightness = 1f;
+		}
+
+
+		public override Color RippleColor {
+			get => skinManager.ColorScheme.LightPrimaryColor;
+			set => throw new InvalidOperationException();
 		}
 
 	}

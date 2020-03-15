@@ -160,7 +160,7 @@
 
             Color rippleColor = Color.FromArgb(40, // color alpha
                 Checked ? SkinManager.ColorScheme.AccentColor : // On color
-                (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
+				SkinManager.Theme.SwitchRippleColor); // Off color
 
             if (Ripple && _rippleAM.IsAnimating())
             {

@@ -152,5 +152,13 @@ namespace MaterialSkin.Themes {
 		}
 		public Brush BackdropBrush { get; set; }
 
+		// for controls
+
+		public virtual Color RippleColor { get; set; }
+
+		public Color SwitchRippleColor { get; set; }
+
+		public float DrawerLightness { get; set; }
+
 	}
 }

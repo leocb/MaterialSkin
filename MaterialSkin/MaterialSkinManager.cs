@@ -35,7 +35,7 @@
         // Constructor
         private MaterialSkinManager()
         {
-			Theme = new ThemeLight();
+			Theme = new ThemeLight(this);
             ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
 
             // Create and cache Roboto fonts
