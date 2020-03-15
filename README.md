@@ -81,7 +81,7 @@ There are a few methods to add this lib:
 
 #### The Easy way
 
-Search for MaterialSkin.2 on the Nuget Package manager inside VisualStudio and add it to your project.
+Search for **MaterialSkin.2** on the Nuget Package manager inside VisualStudio and add it to your project.
 
 #### Manual way
 
@@ -89,11 +89,11 @@ Download the precompiled DLL available on the releases section and add it as a e
 
 #### Compile from the latest master
 
-Clone the project from GitHub, then add the MaterialSkin.csproj to your own solution, then add it as a project reference on your project.
+Clone the project from GitHub, then add the `MaterialSkin.csproj` to your own solution, then add it as a project reference on your project.
   
 ### 2. Add the MaterialSkin components to your ToolBox
 
-Simply drag the MaterialSkin.dll file into your IDE's ToolBox and all the controls should be added there.
+Simply drag the `MaterialSkin.dll` file into your IDE's ToolBox and all the controls should be added there.
 
 ### 3. Inherit from MaterialForm
 
@@ -145,6 +145,8 @@ Public Class Form1
     End Sub
 End Class
 ```
+
+For switching themes (light and dark), see the `MaterialSkinExample` project.
 
 ---
 

@@ -5,7 +5,7 @@ namespace MaterialSkin.Themes {
 
 	public class ThemeLight : Theme {
 
-		private MaterialSkinManager skinManager;
+		private readonly MaterialSkinManager skinManager;
 
 		public ThemeLight(MaterialSkinManager skinManager) {
 			this.skinManager = skinManager;

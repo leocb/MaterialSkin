@@ -5,7 +5,7 @@ namespace MaterialSkin.Themes {
 
 	public class ThemeDark : Theme {
 
-		private MaterialSkinManager skinManager;
+		private readonly MaterialSkinManager skinManager;
 
 		public ThemeDark(MaterialSkinManager skinManager) {
 			this.skinManager = skinManager;

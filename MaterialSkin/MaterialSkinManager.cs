@@ -104,15 +104,14 @@
         }
 
 		private Theme _themeLight, _themeDark;
-		private bool _enabledLight;
 
-		public bool EnabledLightTheme { get => _enabledLight; }
+		public bool EnabledLightTheme { get; private set; }
 
 		public void SetThemes(Theme themeLight, Theme themeDark, bool defaultLight) {
 			_themeLight = themeLight;
 			_themeDark = themeDark;
-			_enabledLight = defaultLight;
-			Theme = _enabledLight ? _themeLight : _themeDark;
+			EnabledLightTheme = defaultLight;
+			Theme = EnabledLightTheme ? _themeLight : _themeDark;
 		}
 
 		public enum ThemeSelector {
@@ -124,16 +123,16 @@
 		public void SwitchTheme(ThemeSelector selector) {
 			switch (selector) {
 				case ThemeSelector.Light:
-					_enabledLight = true;
+					EnabledLightTheme = true;
 					break;
 				case ThemeSelector.Dark:
-					_enabledLight = false;
+					EnabledLightTheme = false;
 					break;
 				case ThemeSelector.Opposite:
-					_enabledLight = !_enabledLight;
+					EnabledLightTheme = !EnabledLightTheme;
 					break;
 			}
-			Theme = _enabledLight ? _themeLight : _themeDark;
+			Theme = EnabledLightTheme ? _themeLight : _themeDark;
 		}
 
 
