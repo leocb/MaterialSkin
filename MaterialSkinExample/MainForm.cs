@@ -1,5 +1,6 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using MaterialSkin.Themes;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -23,8 +24,8 @@ namespace MaterialSkinExample
 
             // MaterialSkinManager properties
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+			materialSkinManager.SetThemes(new ThemeLight(materialSkinManager), new ThemeDark(materialSkinManager), true);
+			materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
 
             // Add dummy data to the listview
             seedListView();
@@ -61,7 +62,7 @@ namespace MaterialSkinExample
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            materialSkinManager.Theme = materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
+			materialSkinManager.SwitchTheme(MaterialSkinManager.ThemeSelector.Opposite);
             updateColor();
         }
 
@@ -82,9 +83,9 @@ namespace MaterialSkinExample
             {
                 case 0:
                     materialSkinManager.ColorScheme = new ColorScheme(
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? Primary.Teal500 : Primary.Indigo500,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? Primary.Teal700 : Primary.Indigo700,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? Primary.Teal200 : Primary.Indigo100,
+                        !materialSkinManager.EnabledLightTheme ? Primary.Teal500 : Primary.Indigo500,
+						!materialSkinManager.EnabledLightTheme ? Primary.Teal700 : Primary.Indigo700,
+						!materialSkinManager.EnabledLightTheme ? Primary.Teal200 : Primary.Indigo100,
                         Accent.Pink200,
                         TextShade.WHITE);
                     break;

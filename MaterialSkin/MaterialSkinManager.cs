@@ -103,6 +103,40 @@
             }
         }
 
+		private Theme _themeLight, _themeDark;
+		private bool _enabledLight;
+
+		public bool EnabledLightTheme { get => _enabledLight; }
+
+		public void SetThemes(Theme themeLight, Theme themeDark, bool defaultLight) {
+			_themeLight = themeLight;
+			_themeDark = themeDark;
+			_enabledLight = defaultLight;
+			Theme = _enabledLight ? _themeLight : _themeDark;
+		}
+
+		public enum ThemeSelector {
+			Opposite,
+			Light,
+			Dark
+		}
+
+		public void SwitchTheme(ThemeSelector selector) {
+			switch (selector) {
+				case ThemeSelector.Light:
+					_enabledLight = true;
+					break;
+				case ThemeSelector.Dark:
+					_enabledLight = false;
+					break;
+				case ThemeSelector.Opposite:
+					_enabledLight = !_enabledLight;
+					break;
+			}
+			Theme = _enabledLight ? _themeLight : _themeDark;
+		}
+
+
         private ColorScheme _colorScheme;
 
         public ColorScheme ColorScheme
