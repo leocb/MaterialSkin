@@ -5,29 +5,83 @@ namespace MaterialSkin.Themes {
 	public class Theme {
 
 		// Text
-		public Color TextHighEmphasisColor { get; set; }
 
+		private Color textHighEmphasisColor;
+		public Color TextHighEmphasisColor {
+			get => textHighEmphasisColor;
+			set {
+				textHighEmphasisColor = value;
+				TextHighEmphasisBrush = new SolidBrush(value);
+			}
+		}
 		public Brush TextHighEmphasisBrush { get; set; }
-		public Color TextMediumEmphasisColor { get; set; }
+
+		private Color textMediumEmphasisColor;
+		public Color TextMediumEmphasisColor {
+			get => textMediumEmphasisColor;
+			set {
+				textMediumEmphasisColor = value;
+				TextMediumEmphasisBrush = new SolidBrush(value);
+			}
+		}
 		public Brush TextMediumEmphasisBrush { get; set; }
-		public Color TextDisabledOrHintColor { get; set; }
+
+		private Color textDisabledOrHintColor;
+		public Color TextDisabledOrHintColor {
+			get => textDisabledOrHintColor;
+			set {
+				textDisabledOrHintColor = value;
+				TextDisabledOrHintBrush = new SolidBrush(value);
+			}
+		}
 		public Brush TextDisabledOrHintBrush { get; set; }
 
 		// Divider
-		public Color DividersColor { get; set; }
 
+		private Color dividersColor;
+		public Color DividersColor {
+			get => dividersColor;
+			set {
+				dividersColor = value;
+				DividersBrush = new SolidBrush(value);
+			}
+		}
 		public Brush DividersBrush { get; set; }
-		public Color DividersAlternativeColor { get; set; }
+
+		private Color dividersAlternativeColor;
+		public Color DividersAlternativeColor {
+			get => dividersAlternativeColor;
+			set {
+				dividersAlternativeColor = value;
+				DividersAlternativeBrush = new SolidBrush(value);
+			}
+		}
 		public Brush DividersAlternativeBrush { get; set; }
 
 		// Checkbox / Radio / Switch
-		public Color CheckboxOffColor { get; set; }
 
+		private Color checkboxOffColor;
+		public Color CheckboxOffColor {
+			get => checkboxOffColor;
+			set {
+				checkboxOffColor = value;
+				CheckboxOffBrush = new SolidBrush(value);
+			}
+		}
 		public Brush CheckboxOffBrush { get; set; }
-		public Color CheckBoxOffDisabledColor { get; set; }
+
+		private Color checkBoxOffDisabledColor;
+		public Color CheckBoxOffDisabledColor {
+			get => checkBoxOffDisabledColor;
+			set {
+				checkBoxOffDisabledColor = value;
+				CheckBoxOffDisabledBrush = new SolidBrush(value);
+			}
+		}
 		public Brush CheckBoxOffDisabledBrush { get; set; }
 
 		// Switch
+
 		public Color SwitchOffColor { get; set; }
 
 		public Color SwitchOffThumbColor { get; set; }
@@ -35,21 +89,67 @@ namespace MaterialSkin.Themes {
 		public Color SwitchOffDisabledThumbColor { get; set; }
 
 		// Control Back colors
-		public Color BackgroundColor { get; set; }
 
+		private Color backgroundColor;
+		public Color BackgroundColor {
+			get => backgroundColor;
+			set {
+				backgroundColor = value;
+				BackgroundBrush = new SolidBrush(value);
+			}
+		}
 		public Brush BackgroundBrush { get; set; }
-		public Color BackgroundAlternativeColor { get; set; }
+
+		private Color backgroundAlternativeColor;
+		public Color BackgroundAlternativeColor {
+			get => backgroundAlternativeColor;
+			set {
+				backgroundAlternativeColor = value;
+				BackgroundAlternativeBrush = new SolidBrush(value);
+			}
+		}
 		public Brush BackgroundAlternativeBrush { get; set; }
-		public Color BackgroundDisabledColor { get; set; }
+
+		private Color backgroundDisabledColor;
+		public Color BackgroundDisabledColor {
+			get => backgroundDisabledColor;
+			set {
+				backgroundDisabledColor = value;
+				BackgroundDisabledBrush = new SolidBrush(value);
+			}
+		}
 		public Brush BackgroundDisabledBrush { get; set; }
-		public Color BackgroundHoverColor { get; set; }
+
+		private Color backgroundHoverColor;
+		public Color BackgroundHoverColor {
+			get => backgroundHoverColor;
+			set {
+				backgroundHoverColor = value;
+				BackgroundHoverBrush = new SolidBrush(value);
+			}
+		}
 		public Brush BackgroundHoverBrush { get; set; }
-		public Color BackgroundFocusColor { get; set; }
+
+		private Color backgroundFocusColor;
+		public Color BackgroundFocusColor {
+			get => backgroundFocusColor;
+			set {
+				backgroundFocusColor = value;
+				BackgroundFocusBrush = new SolidBrush(value);
+			}
+		}
 		public Brush BackgroundFocusBrush { get; set; }
 
 		// Backdrop color
-		public Color BackdropColor { get; set; }
 
+		private Color backdropColor;
+		public Color BackdropColor {
+			get => backdropColor;
+			set {
+				backdropColor = value;
+				BackdropBrush = new SolidBrush(value);
+			}
+		}
 		public Brush BackdropBrush { get; set; }
 
 	}
