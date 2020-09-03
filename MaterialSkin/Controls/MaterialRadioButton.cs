@@ -150,7 +150,7 @@
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
                 using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * animationValue),
-                    !Checked ? (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor)))
+                    !Checked ? SkinManager.Theme.SwitchRippleColor : RadioColor)))
                 {
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
                 }
@@ -164,7 +164,7 @@
                     double animationValue = _rippleAM.GetProgress(i);
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
-                    using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)((animationValue * 40)), !Checked ? (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor)))
+                    using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)((animationValue * 40)), !Checked ? SkinManager.Theme.SwitchRippleColor : RadioColor)))
                     {
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
                     }

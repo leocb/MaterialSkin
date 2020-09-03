@@ -189,7 +189,7 @@
                 return;
 
             // Calculate lightness and color
-            float l = UseColors ? SkinManager.ColorScheme.TextColor.R / 255 : SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? 0f : 1f;
+            float l = UseColors ? SkinManager.ColorScheme.TextColor.R / 255 : SkinManager.Theme.DrawerLightness;
             float r = (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor.R : SkinManager.ColorScheme.PrimaryColor.R) / 255f;
             float g = (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor.G : SkinManager.ColorScheme.PrimaryColor.G) / 255f;
             float b = (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor.B : SkinManager.ColorScheme.PrimaryColor.B) / 255f;
@@ -440,8 +440,7 @@
             {
                 var rippleBrush = new SolidBrush(Color.FromArgb((int)(70 - (clickAnimProgress * 70)),
                     UseColors ? SkinManager.ColorScheme.AccentColor : // Using colors
-                    SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : // light theme
-                    SkinManager.ColorScheme.LightPrimaryColor)); // dark theme
+                    SkinManager.Theme.RippleColor));
 
                 g.SetClip(_drawerItemPaths[_baseTabControl.SelectedIndex]);
                 g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X + dx - (rSize / 2), _animationSource.Y - rSize / 2, rSize, rSize));
@@ -458,8 +457,7 @@
                 Brush bgBrush = new SolidBrush(Color.FromArgb(CalculateAlpha(60, 0, currentTabIndex, clickAnimProgress, 1 - showHideAnimProgress),
                     UseColors ? _backgroundWithAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.LightPrimaryColor : // using colors
                     _backgroundWithAccent ? SkinManager.ColorScheme.AccentColor : // defaul accent
-                    SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : // default light
-                    SkinManager.ColorScheme.LightPrimaryColor)); // default dark
+					SkinManager.Theme.RippleColor)); // default dark
                 g.FillPath(bgBrush, _drawerItemPaths[currentTabIndex]);
                 bgBrush.Dispose();
 
