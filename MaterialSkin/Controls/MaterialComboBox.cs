@@ -3,7 +3,8 @@
     using MaterialSkin.Animations;
     using System;
     using System.ComponentModel;
-    using System.Drawing;
+	using System.Data;
+	using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -266,7 +267,9 @@
             string Text = "";
             if (!string.IsNullOrWhiteSpace(DisplayMember))
             {
-                Text = Items[e.Index].GetType().GetProperty(DisplayMember).GetValue(Items[e.Index], null).ToString();
+                var table = ((DataRow)Items[e.Index].GetType().GetProperty("Row").GetValue(Items[e.Index])).Table;
+
+                Text = table.Rows[e.Index][DisplayMember].ToString();
             }
             else
             {
