@@ -1,6 +1,7 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
@@ -39,6 +40,12 @@ namespace MaterialSkinExample
             materialComboBox6.SelectedIndex = 0;
         }
 
+        public class teste
+		{
+            public int i { get; set; }
+            public string type { get; set; }
+		}
+
         private void seedListView()
         {
             //Define
@@ -54,8 +61,7 @@ namespace MaterialSkinExample
             //Add
             foreach (string[] version in data)
             {
-                var item = new ListViewItem(version);
-                materialListView1.Items.Add(item);
+				materialListView1.Items.Add(new ListViewItem(version));
             }
         }
 
@@ -164,5 +170,5 @@ namespace MaterialSkinExample
             var mresult = MaterialMessageBox.Show(batchOperationResults, "Batch Operation");
             materialComboBox1.Items.Add("this is a very long string");
         }
-    }
+	}
 }
