@@ -53,7 +53,7 @@
 
         private string _hint = string.Empty;
 
-        [Category("Material Skin"), DefaultValue("")]
+        [Category("Material Skin"), DefaultValue(""), Localizable(true)]
         public string Hint
         {
             get { return _hint; }
@@ -337,7 +337,7 @@
             ExcludeClipRect(dc, clientRect.Left, clientRect.Top, clientRect.Right, clientRect.Bottom);
 
             // Create a pen and select it
-            Color borderColor = SkinManager.ColorScheme.PrimaryColor; // BackdropColor;  //GetCardsColor();
+            Color borderColor = UseAccent==true ? SkinManager.ColorScheme.AccentColor  : SkinManager.ColorScheme.PrimaryColor;
             IntPtr border = CreatePen(PenStyles.PS_SOLID, 1, RGB(borderColor.R, borderColor.G, borderColor.B));
 
             // Draw the border rectangle
@@ -494,7 +494,7 @@
                 NativeText.DrawTransparentText(
                     Text,
                     SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1),
-                    Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
+                    Enabled ? SkinManager.ComboBoxItemHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,
                     NativeTextRenderer.TextAlignFlags.Left | NativeTextRenderer.TextAlignFlags.Middle);
