@@ -38,12 +38,14 @@
             Contained
         }
 
+        [Category("Material Skin")]
         public bool UseAccentColor
         {
             get { return useAccentColor; }
             set { useAccentColor = value; Invalidate(); }
         }
 
+        [Category("Material Skin")]
         /// <summary>
         /// Gets or sets a value indicating whether HighEmphasis
         /// </summary>
@@ -53,12 +55,14 @@
             set { highEmphasis = value; Invalidate(); }
         }
 
+        [Category("Material Skin")]
         public bool DrawShadows
         {
             get { return drawShadows; }
             set { drawShadows = value; Invalidate(); }
         }
 
+        [Category("Material Skin")]
         /// <summary>
         /// Gets or sets a value indicating whether HighEmphasis
         /// </summary>
@@ -66,6 +70,18 @@
         {
             get { return type; }
             set { type = value; Invalidate(); }
+        }
+
+        private int _BorderRadius;
+
+        [Category("Material Skin"), DisplayName("Border Radius"), DefaultValue(4)]
+        /// <summary>
+        /// Gets or sets border radius 
+        /// </summary>
+        public int BorderRadius
+        {
+            get { return _BorderRadius; }
+            set { if (value < 1) value = 1; _BorderRadius = value; }
         }
 
         protected override void InitLayout()
@@ -131,6 +147,7 @@
         private bool useAccentColor;
         private MaterialButtonType type;
 
+        [Category("Material Skin")]
         /// <summary>
         /// Gets or sets the Icon
         /// </summary>
@@ -161,6 +178,7 @@
         /// </summary>
         public MaterialButton()
         {
+            BorderRadius = 4;
             DrawShadows = true;
             HighEmphasis = true;
             UseAccentColor = false;
@@ -241,7 +259,7 @@
             RectangleF buttonRectF = new RectangleF(ClientRectangle.Location, ClientRectangle.Size);
             buttonRectF.X -= 0.5f;
             buttonRectF.Y -= 0.5f;
-            GraphicsPath buttonPath = DrawHelper.CreateRoundRect(buttonRectF, 4);
+            GraphicsPath buttonPath = DrawHelper.CreateRoundRect(buttonRectF, _BorderRadius);
 
             // button shadow (blend with form shadow)
             DrawHelper.DrawSquareShadow(g, ClientRectangle);
