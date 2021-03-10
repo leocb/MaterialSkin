@@ -325,6 +325,21 @@
 
         private AnimationManager _drawerShowHideAnimManager;
 
+        private bool _CanScroll;
+        [Category("Drawer")]
+        public bool DrawerCanScroll
+        {
+            get
+            {
+                return _CanScroll;
+            }
+            set
+            {
+                _CanScroll = value;
+                drawerControl.CanScroll = value;
+            }
+        }
+
         protected void AddDrawerOverlayForm()
         {
             Form drawerOverlay = new Form();
@@ -371,6 +386,7 @@
             drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
             drawerControl.BaseTabControl = DrawerTabControl;
             drawerControl.ShowIconsWhenHidden = true;
+            drawerControl.CanScroll = DrawerCanScroll;
             // Init Options
             drawerControl.IsOpen = DrawerIsOpen;
             drawerControl.ShowIconsWhenHidden = DrawerShowIconsWhenHidden;

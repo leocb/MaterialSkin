@@ -112,6 +112,20 @@
         [Category("Drawer")]
         public int IndicatorWidth { get; set; }
 
+         [Category("Drawer")]
+        private bool _CanScroll;
+        public bool CanScroll
+        {
+            get
+            {
+                return _CanScroll;
+            }
+            set
+            {
+                _CanScroll = value;
+            }
+        }
+
         [Browsable(false)]
         public int Depth { get; set; }
 
@@ -518,6 +532,13 @@
             var height = drawerItemHeight;
 
             g.FillRectangle(SkinManager.ColorScheme.AccentBrush, x, y, IndicatorWidth, height);
+
+            //Add Scroll here
+            if (_CanScroll == true)
+            {
+                this.MouseWheel += Scroll;
+            }
+
         }
 
         public new void Show()
@@ -661,5 +682,24 @@
                 _drawerItemPaths[i] = DrawHelper.CreateRoundRect(new RectangleF(_drawerItemRects[i].X - 0.5f, _drawerItemRects[i].Y - 0.5f, _drawerItemRects[i].Width, _drawerItemRects[i].Height), 4);
             }
         }
+
+        public void Scroll(object sender, MouseEventArgs e)
+        {
+            int Modifier = 2;
+            if (e.Delta > 0)
+            {
+                //User Scrolled up
+                if (this.Location.Y < 0) //Prevent Over scrolling
+                {
+                    this.Location = new Point(this.Location.X, (this.Location.Y + Modifier));
+                }
+            }
+            else if(CanScroll == true)
+            {
+                // The user scrolled down.
+                this.Location = new Point(this.Location.X, (this.Location.Y - Modifier));
+            }
+        }
+
     }
 }
